@@ -37,7 +37,14 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: skim6.18.04
+            - name: access control
+              run: |
+                  printf ${{ secrets.DWSSAP }} | base64 -d | kinit ${{ secrets.EMAN_RESU }}@CERN.CH
             - name: skim
               run: |
-                  chmod +x skim
-                  ./skim
+                chmod +x skim
+                ./skim root://eosuser.cern.ch//eos/user/g/gstark/AwesomeWorkshopFeb2020/GluGluToHToTauTau.root skim_ggH.root 19.6 11467.0 0.1
+              uses: actions/upload-artifact@v2
+              with:
+                  name: skim_ggH.root
+                  path: skim_ggH.root
