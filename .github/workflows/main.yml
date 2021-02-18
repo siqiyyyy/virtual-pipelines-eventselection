@@ -43,13 +43,15 @@ jobs:
             - name: skim
               run: |
                 chmod +x skim
-                ./skim root://eosuser.cern.ch//eos/user/g/gstark/AwesomeWorkshopFeb2020/GluGluToHToTauTau.root skim_ggH.root 19.6 11467.0 0.1
+                ./skim root://eosuser.cern.ch//eos/user/g/gstark/AwesomeWorkshopFeb2020/GluGluToHToTauTau.root skim_ggH.root 19.6 11467.0 0.1 > skim_ggH.log
             - name: upload artifact
               uses: actions/upload-artifact@v2
               with:
                   name: skim_ggH
-                  path: skim_ggH.root
-    plot:
+                  path: |
+                    skim_ggH.root
+                    skim_ggH.log
+    histograming:
         runs-on: ubuntu-latest
         needs: skim
         container: rootproject/root-conda:6.18.04
@@ -68,3 +70,39 @@ jobs:
               with:
                   name: hist_ggH
                   path: hist_ggH.root
+    test_cutfow:
+        runs-on: ubuntu-latest
+        needs: skim
+        container: rootproject/root-conda:6.18.04
+        steps:
+            - name: checkout repository
+              uses: actions/checkout@v2
+            - name: download artifact
+              uses: actions/download-artifact@v2
+              with:
+                  name: skim_ggH
+            - name: test cutflow ggH
+              run: |
+                  python test_cutflow_ggH.py
+    test_plot:
+        runs-on: ubuntu-latest
+        needs: histograming
+        container: rootproject/root-conda:6.18.04
+        steps:
+            - name: checkout repository
+              uses: actions/checkout@v2
+            - name: download artifact
+              uses: actions/download-artifact@v2
+              with:
+                  name: hist_ggH
+            - name: test cutflow ggH
+              run: |
+                  python test_plot_ggH.py
+            - name: upload artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: plots_ggH
+                  path: |
+                      ggH_pt_1.png
+                      ggH_pt_2.png
+
