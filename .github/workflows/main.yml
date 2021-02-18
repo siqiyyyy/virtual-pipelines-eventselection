@@ -119,4 +119,4 @@ jobs:
                   printf ${{ secrets.DWSSAP }} | base64 -d | kinit ${{ secrets.EMAN_RESU }}@CERN.CH
             - name: upload plots
               run: |
-                scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ggH_pt_1.png ggH_pt_2.png ${{ secrets.EMAN_RESU }}@lxplus.cern.ch:/~/cernbox/www/test
+                scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ggH_pt_1.png ggH_pt_2.png ${{ secrets.EMAN_RESU }}@lxplus.cern.ch:~/cernbox/www/test
