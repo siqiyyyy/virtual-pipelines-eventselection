@@ -12,4 +12,8 @@ jobs:
 
       - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@1.1.0
-        max-allowed-issues: 2147483647
+        with:
+            output: results.sarif
+            format: sarif
+            gh-code-scanning-compat: true
+            max-allowed-issues: 2147483647
