@@ -3,10 +3,10 @@
 # In the fit we treat ZTT as signal and fit the signal strength given statistical
 # uncertainties of the observation and normalization uncertainties for each process.
 
+import os
 import argparse
 import ROOT
 ROOT.gROOT.SetBatch(True)
-import os
 
 def main(path, output):
     # Read and preprocess histograms for fitting

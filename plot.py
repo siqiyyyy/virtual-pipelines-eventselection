@@ -11,53 +11,53 @@ ROOT.gROOT.SetBatch(True)
 
 # Declare a human-readable label for each variable
 labels = {
-        "pt_1": "Muon p_{T} / GeV",
-        "pt_2": "Tau p_{T} / GeV",
-        "eta_1": "Muon #eta",
-        "eta_2": "Tau #eta",
-        "phi_1": "Muon #phi",
-        "phi_2": "Tau #phi",
-        "pt_met": "Missing p_{T} / GeV",
-        "phi_met": "Missing p_{T} (#phi)",
-        "q_1": "Muon charge",
-        "q_2": "Tau charge",
-        "iso_1": "Muon isolation",
-        "iso_2": "Tau isolation",
-        "m_1": "Muon mass / GeV",
-        "m_2": "Tau mass / GeV",
-        "mt_1": "Muon transverse mass / GeV",
-        "mt_2": "Tau transverse mass / GeV",
-        "dm_2": "Tau decay mode",
-        "m_vis": "Visible di-tau mass / GeV",
-        "pt_vis": "Visible di-tau p_{T} / GeV",
-        "mjj": "Di-jet mass / GeV",
-        "ptjj": "Di-jet p_{T} / GeV",
-        "jdeta": "Di-jet #Delta#eta",
-        "jpt_1": "Leading jet p_{T} / GeV",
-        "jpt_2": "Trailing jet p_{T} / GeV",
-        "jeta_1": "Leading jet #eta",
-        "jeta_2": "Trailing jet #eta",
-        "jphi_1": "Leading jet #phi",
-        "jphi_2": "Trailing jet #phi",
-        "jm_1": "Leading jet mass / GeV",
-        "jm_2": "Trailing jet mass / GeV",
-        "jbtag_1": "Leading jet b-tag / GeV",
-        "jbtag_2": "Trailing jet b-tag / GeV",
-        "npv": "Number of primary vertices",
-        "njets": "Number of jets",
-        }
+    "pt_1": "Muon p_{T} / GeV",
+    "pt_2": "Tau p_{T} / GeV",
+    "eta_1": "Muon #eta",
+    "eta_2": "Tau #eta",
+    "phi_1": "Muon #phi",
+    "phi_2": "Tau #phi",
+    "pt_met": "Missing p_{T} / GeV",
+    "phi_met": "Missing p_{T} (#phi)",
+    "q_1": "Muon charge",
+    "q_2": "Tau charge",
+    "iso_1": "Muon isolation",
+    "iso_2": "Tau isolation",
+    "m_1": "Muon mass / GeV",
+    "m_2": "Tau mass / GeV",
+    "mt_1": "Muon transverse mass / GeV",
+    "mt_2": "Tau transverse mass / GeV",
+    "dm_2": "Tau decay mode",
+    "m_vis": "Visible di-tau mass / GeV",
+    "pt_vis": "Visible di-tau p_{T} / GeV",
+    "mjj": "Di-jet mass / GeV",
+    "ptjj": "Di-jet p_{T} / GeV",
+    "jdeta": "Di-jet #Delta#eta",
+    "jpt_1": "Leading jet p_{T} / GeV",
+    "jpt_2": "Trailing jet p_{T} / GeV",
+    "jeta_1": "Leading jet #eta",
+    "jeta_2": "Trailing jet #eta",
+    "jphi_1": "Leading jet #phi",
+    "jphi_2": "Trailing jet #phi",
+    "jm_1": "Leading jet mass / GeV",
+    "jm_2": "Trailing jet mass / GeV",
+    "jbtag_1": "Leading jet b-tag / GeV",
+    "jbtag_2": "Trailing jet b-tag / GeV",
+    "npv": "Number of primary vertices",
+    "njets": "Number of jets",
+    }
 
 
 # Specify the color for each process
 colors = {
-        "ggH": ROOT.TColor.GetColor("#BF2229"),
-        "qqH": ROOT.TColor.GetColor("#00A88F"),
-        "TT": ROOT.TColor.GetColor(155, 152, 204),
-        "W": ROOT.TColor.GetColor(222, 90, 106),
-        "QCD":  ROOT.TColor.GetColor(250, 202, 255),
-        "ZLL": ROOT.TColor.GetColor(100, 192, 232),
-        "ZTT": ROOT.TColor.GetColor(248, 206, 104),
-        }
+    "ggH": ROOT.TColor.GetColor("#BF2229"),
+    "qqH": ROOT.TColor.GetColor("#00A88F"),
+    "TT": ROOT.TColor.GetColor(155, 152, 204),
+    "W": ROOT.TColor.GetColor(222, 90, 106),
+    "QCD":  ROOT.TColor.GetColor(250, 202, 255),
+    "ZLL": ROOT.TColor.GetColor(100, 192, 232),
+    "ZTT": ROOT.TColor.GetColor(248, 206, 104),
+    }
 
 
 # Retrieve a histogram from the input file based on the process and the variable
@@ -240,5 +240,5 @@ if __name__ == "__main__":
     parser.add_argument("output", type=str, help="Output directory for plots")
     parser.add_argument("scale", type=float, help="Scaling of the integrated luminosity")
     args = parser.parse_args()
-    for variable in labels.keys():
-        main(args.path, args.output, variable, args.scale)
+    for var in labels.keys():
+        main(args.path, args.output, var, args.scale)

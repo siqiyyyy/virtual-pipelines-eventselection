@@ -1,7 +1,7 @@
 import sys
 
-logfile = open('skim_ggH.log', 'r')
-lines = [line.rstrip() for line in logfile]
+LOG_FILE = open('skim_ggH.log', 'r')
+lines = [line.rstrip() for line in LOG_FILE]
 
 required_lines = [
    'Number of events: 47696',

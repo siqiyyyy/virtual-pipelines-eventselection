@@ -15,6 +15,6 @@ SAMPLES=("GluGluToHToTauTau"
 
 for SAMPLE in "${SAMPLES[@]}"
 do
-    FULLPATH=${BASEPATH}${SAMPLE}.root
-    python reduce.py $FULLPATH 0.1 $OUTPUT_DIR
+    FULLPATH="${BASEPATH}${SAMPLE}.root"
+    python reduce.py "$FULLPATH" 0.1 "$OUTPUT_DIR"
 done

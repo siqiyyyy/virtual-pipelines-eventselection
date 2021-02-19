@@ -25,10 +25,10 @@ if not os.path.exists(outdir):
     os.makedirs(outdir)
 indexmd = open(outdir+'/index.md', 'w')
 indexmd.write(
-        "## Welcome to GitHub Pages\n\
-        \n\
-        This is a test to enable automatic publication of plots. The following plots are from virtual-pipeline:\n"
-        )
+    "## Welcome to GitHub Pages\n\
+    \n\
+    This is a test to enable automatic publication of plots. The following plots are from virtual-pipeline:\n"
+    )
 for key in keys:
     hist = f.Get(key)
     canv = ROOT.TCanvas("canv","canv")

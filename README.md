@@ -48,15 +48,15 @@ The already reduced samples are placed on a public EOS space here: `root://eospu
 ## Runtime
 
 **Details:**
-- [Data] Locally on an SSD, 6.5GB, 10% of the original samples, represents data and simulation of about 1.1fb-1 of the data taken in 2012 with CMS
+- **Data** Locally on an SSD, 6.5GB, 10% of the original samples, represents data and simulation of about 1.1fb-1 of the data taken in 2012 with CMS
 
-- [System] Consumer laptop, single core, on reduced initial samples, everything fully sequentially
+- **System** Consumer laptop, single core, on reduced initial samples, everything fully sequentially
 
 **Runtime:**
-- [Skimming] 2m30s (local files as described above), 6m (streamed via XRootD)
-- [Histograms] 40s
-- [Plotting] Instant
-- [Fit] Almost instant
+- **Skimming** 2m30s (local files as described above), 6m (streamed via XRootD)
+- **Histograms** 40s
+- **Plotting** Instant
+- **Fit** Almost instant
 
 Note that skimming and histogram production can be run seamlessly in multi-threading mode. I removed the feature for now so that we don't break any workflow later on (containe, ReANA, ...) but we could improve the runtime by a factor of around N (N being the number of threads used / physical cores).
 
