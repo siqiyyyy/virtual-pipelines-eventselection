@@ -99,6 +99,21 @@ jobs:
               run: |
                   python test_plot_ggH.py
                   echo "theme: jekyll-theme-cayman" > deploy/_config.yml
+            - name: upload artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: deploy
+                  path: deploy
+    deploy:
+        runs-on: ubuntu-latest
+        needs: test_plot
+        steps:
+            - name: checkout repository
+              uses: actions/checkout@v2
+            - name: download artifact
+              uses: actions/download-artifact@v2
+              with:
+                  name: deploy
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@4.0.0
               with:
