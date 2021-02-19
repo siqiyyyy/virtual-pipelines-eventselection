@@ -27,7 +27,7 @@ indexmd = open(outdir+'/index.md', 'w')
 indexmd.write(
     "## Welcome to GitHub Pages\n\
     \n\
-    This is a test to enable automatic publication of plots. The following plots are from virtual-pipeline:\n"
+    This is a test to enable automatic publication of plots.\nThe following plots are from virtual-pipeline:\n\n"
     )
 for key in keys:
     hist = f.Get(key)
