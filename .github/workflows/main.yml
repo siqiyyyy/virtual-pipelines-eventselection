@@ -114,6 +114,7 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: deploy
+                  path: deploy
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@4.0.0
               with:
