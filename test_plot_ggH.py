@@ -1,4 +1,4 @@
-import sys
+import sys,os
 import ROOT
 
 ROOT.gROOT.SetBatch(True)
@@ -20,11 +20,23 @@ if abs(integral - 222.88716647028923) > 0.0001:
     sys.exit(1)
 
 # produce some plots:
-for key in required_keys:
+outdir = "deploy"
+if not os.path.exists(outdir):
+    os.makedirs(outdir)
+indexmd = open(outdir+'/index.md', 'w')
+indexmd.write(
+        "## Welcome to GitHub Pages\n\
+        \n\
+        This is a test to enable automatic publication of plots. The following plots are from virtual-pipeline:\n"
+        )
+for key in keys:
     hist = f.Get(key)
     canv = ROOT.TCanvas("canv","canv")
     hist.GetXaxis().SetTitle("Higgs pT/GeV")
     hist.GetYaxis().SetTitle("Events")
     hist.Draw("E1")
     canv.SetTitle(key)
-    canv.Print(key+".png")
+    canv.Print(outdir+"/"+key+".png")
+    indexmd.write("### "+key+"\n")
+    indexmd.write(f'![image]({key+".png"})\n')
+indexmd.close()
