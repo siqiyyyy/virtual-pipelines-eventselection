@@ -1,28 +1,22 @@
 ## Welcome to GitHub Pages
     
-    This is a test to enable automatic publication of plots. The following plots are from virtual-pipeline:
-    
+    This is a test to enable automatic publication of plots.
+The following plots are from virtual-pipeline:
+
 ### ggH_pt_1
 ![image](ggH_pt_1.png)
-
 ### ggH_pt_2
 ![image](ggH_pt_2.png)
-
 ### ggH_eta_1
 ![image](ggH_eta_1.png)
-
 ### ggH_eta_2
 ![image](ggH_eta_2.png)
-
 ### ggH_phi_1
 ![image](ggH_phi_1.png)
-
 ### ggH_phi_2
 ![image](ggH_phi_2.png)
-
 ### ggH_iso_1
 ![image](ggH_iso_1.png)
-
 ### ggH_iso_2
 ![image](ggH_iso_2.png)
 ### ggH_q_1
