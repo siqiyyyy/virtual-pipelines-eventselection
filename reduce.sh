@@ -13,7 +13,7 @@ SAMPLES=("GluGluToHToTauTau"
          "Run2012B_TauPlusX"
          "Run2012C_TauPlusX")
 
-for SAMPLE in ${SAMPLES[@]}
+for SAMPLE in "${SAMPLES[@]}"
 do
     FULLPATH=${BASEPATH}${SAMPLE}.root
     python reduce.py $FULLPATH 0.1 $OUTPUT_DIR
